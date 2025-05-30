@@ -1,13 +1,12 @@
-variable "location" {
-  description = "The location/region for prod resources"
+variable "subscription_id" {
+  description = "The subscription ID for the subscription"
   type        = string
-  default     = "westus2"  # This will override the root default if needed
 }
 
 variable "tags" {
-  description = "Environment-specific tags for prod"
+  description = "Tags to apply to all resources"
   type        = map(string)
   default     = {
-    env = "prod"
+    sub = "prod"
   }
-} 
+}

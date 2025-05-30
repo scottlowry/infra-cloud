@@ -1,13 +1,12 @@
-variable "location" {
-  description = "The default location/region for all resources"
+variable "subscription_id" {
+  description = "The subscription ID for the subscription"
   type        = string
-  default     = "westus2"
 }
 
 variable "tags" {
   description = "Tags to apply to all resources"
   type        = map(string)
   default     = {
-    managed_by = "terraform"
+    sub = "lab"
   }
 }
