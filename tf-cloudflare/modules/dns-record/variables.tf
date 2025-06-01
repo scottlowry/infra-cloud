@@ -1,9 +1,3 @@
-variable "api_token" {
-  description = "The API token for the Cloudflare API"
-  type        = string
-  sensitive   = true
-}
-
 variable "name" {
   description = "The name of the DNS record"
   type        = string
