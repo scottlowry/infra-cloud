@@ -1,27 +1,30 @@
 module "rg-apps" {
-  source = "../"
+  source = "../../../../modules/resource-group"
+
+  subscription_id = var.subscription_id
 
   name = "rg-apps"
-  tags = var.tags
 }
 
 module "swa-ScottLowryNet" {
-  source = "../../../../../modules/static-web-app"
+  source = "../../../../modules/static-web-app"
+
+  subscription_id = var.subscription_id
 
   name                = "ScottLowryNet"
-  resource_group_name = module.rg-apps.name
+  resource_group_name = module.rg-apps.resource_group_name
   sku_tier            = "Free"
   sku_size            = "Free"
   repository_branch   = "main"
   repository_url      = "https://github.com/scottlowry/ScottLowryNet"
   repository_token    = var.repository_token
-  tags                = merge(var.tags, {
-    Application = "ScottLowryNet"
-  })
+  tags                = {
+    application = "ScottLowryNet"
+  }
 }
 
 module "swacd-wwwScottLowryNet" {
-  source = "../../../../../modules/static-web-app-custom-domain"
+  source = "../../../../modules/static-web-app-custom-domain"
   
   domain_name = "www.scottlowry.net"
   static_web_app_id = module.swa-ScottLowryNet.static_web_app_id

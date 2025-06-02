@@ -1,16 +1,16 @@
 output "rg_apps_name" {
   description = "The name of the resource group"
-  value       = module.rg-apps.name
+  value       = module.rg-apps.resource_group_name
 }
 
 output "rg_apps_location" {
   description = "The location of the resource group"
-  value       = module.rg-apps.location
+  value       = module.rg-apps.resource_group_location
 }
 
 output "rg_apps_id" {
   description = "The ID of the resource group"
-  value       = module.rg-apps.id
+  value       = module.rg-apps.resource_group_id
 }
 
 output "name" {

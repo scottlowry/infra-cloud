@@ -7,6 +7,20 @@ terraform {
   }
 }
 
+provider "azurerm" {
+  features {}
+
+  subscription_id = var.subscription_id
+
+}
+
+locals {
+  all_tags = merge(var.tags, {
+    resource_type = "static_web_app",
+    managed_by = "terraform"
+  })
+}
+
 resource "azurerm_static_web_app" "this" {
   name                = var.name
   location            = var.location
@@ -16,7 +30,5 @@ resource "azurerm_static_web_app" "this" {
   repository_branch   = var.repository_branch
   repository_url      = var.repository_url
   repository_token    = var.repository_token
-  tags                = merge(var.tags, {
-    resource_type = "static_web_app"
-  })
+  tags                = local.all_tags
 }

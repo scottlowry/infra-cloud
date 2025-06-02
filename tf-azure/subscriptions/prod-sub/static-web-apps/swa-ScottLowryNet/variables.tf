@@ -1,10 +1,5 @@
-variable "name" {
-  description = "The name of the static web app"
-  type        = string
-}
-
-variable "location" {
-  description = "The location/region where the static web app will be created"
+variable "subscription_id" {
+  description = "The ID of the subscription where the static web app will be created"
   type        = string
 }
 

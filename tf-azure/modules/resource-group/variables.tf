@@ -1,3 +1,8 @@
+variable "subscription_id" {
+  description = "The ID of the subscription where the resource group will be created"
+  type        = string
+}
+
 variable "name" {
   description = "The name of the resource group"
   type        = string
@@ -11,5 +16,5 @@ variable "location" {
 
 variable "tags" {
   type    = map(string)
-  default = {}
+  default     = {}
 }

@@ -1,8 +1,10 @@
 module "rg-apps" {
   source = "../../../../modules/resource-group"
 
-  name     = "rg-apps"
-  tags     = merge(var.tags, {
-    resource_group_contents = "apps"
-  })
+  subscription_id = var.subscription_id
+
+  name = "rg-apps"
+  tags = {
+    contents = "apps"
+  }
 } 
